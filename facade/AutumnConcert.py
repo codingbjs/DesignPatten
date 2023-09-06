@@ -1,7 +1,7 @@
-from facard.Player import Player
+from facade.Player import Player
 
 
-class SpringConcert:
+class AutumnConcert:
     def start_concert(self):
         p = Player("바이올린")
         # p.prepare()
@@ -10,4 +10,4 @@ class SpringConcert:
         # p.curtain_call()
         p.play()
 
-        print("봄... 이었습니다.")
+        print("가을... 이었습니다.")
