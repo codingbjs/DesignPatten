@@ -9,21 +9,22 @@ class Coffee:
         self.__cost = cost
         self.__price = price
         
-    def offer(self, order_cnt,account): # 주문수량을 받기 위한 매개변수
-        self.__stock -= order_cnt # 재고 차감
-        self.__total_sales_cnt += order_cnt # 총 판매량
+    def offer(self, order_cnt):
+        self.__stock -= order_cnt
+        self.__total_sales_cnt += order_cnt
         
         if self.__stock < self.__safety_stock:
-            print('[system:log] 재고 부족하여 안전재고를 확보합니다.')
-            purchase = Purchase(self,self.__safety_stock * 2) # 커피와 안전재고의 수량*2를 넘긴다.
-
-            if purchase.execute(account):  # 매입실행 성공
-                print('[system:log] 안전재고 확보 성공..')
+            print('[system:log] 재고가 부족해 안전재고를 확보합니다.')
+            purchase = Purchase(self, self.__safety_stock * 2)
+            
+            if purchase.execute():
+                print('[system:log] 안전재고 확보에 성공했습니다.')
             else:
-                print('[system:log] 안전재고 확보 실패..')
-
-    def add_stock(self, cnt):   # 재고 추가
+                print('[system:log] 안전재고 확보에 실패했습니다.')    
+    
+    def add_stock(self, cnt):
         self.__stock += cnt
+    
     
     def get_name(self):
         return self.__name
@@ -47,7 +48,7 @@ class Coffee:
         return self.__safety_stock
 
     def set_safety_stock(self, safety_stock):
-            self.__safety_stock = safety_stock
+        self.__safety_stock = safety_stock
 
     def get_cost(self):
         return self.__cost
@@ -77,6 +78,3 @@ class Coffee:
             + str(self.__price)
             + "]"
         )
-
-
-    

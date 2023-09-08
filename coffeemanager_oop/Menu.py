@@ -55,18 +55,17 @@ class Menu:
 
     def register_order(self, input_code, order_cnt):
         order = Order.create_order(self.drinks[input_code], order_cnt)
-        if order is None:   # 오더가 None = 주문 취소
-            print(f'재고 부족으로 인해 주문이 취소되었습니다.')
-            return
-        
-        payment = self.sales.take_order(order, self.account)  # 주문전달
+        if order is None:
+            print('주문 수량이 재고보다 많습니다.')
+            return 
 
-        
+        payment = self.sales.take_order(order)
+
     def order_result(self, payment):
         order = payment.get_order()
-        print(f'\n제품명 : {order.get_coffee().get_name()}')
-        print(f'\n판매가 : {order.get_coffee().get_price()}')
-        print(f'\n판매수량 : {order.get_order_count()}')
-        print(f'\n결제금액 : {order.get_pay_price()}')
-        print(f'\n남은재고 : {order.get_coffee().get_stock()}')
+        print(f"\n 제품명 : {order.get_coffee().get_name()}")
+        print(f" 판매가 : {order.get_coffee().get_price()}")
+        print(f" 판매수량 : {order.get_order_cnt()}")
+        print(f" 결제금액 : {payment.get_pay_price()}")
+        print(f" 남은 재고 : {order.get_coffee().get_stock()}")
         print(order)

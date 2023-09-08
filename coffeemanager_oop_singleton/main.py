@@ -1,6 +1,5 @@
-from Coffee import *
-from Sales import *
 from Menu import *
+
 
 def main():
     drinks = [
@@ -10,6 +9,7 @@ def main():
     ]
 
     Menu(Sales(), drinks).main_menu()
+
 
 if __name__ == "__main__":
     main()

@@ -1,20 +1,32 @@
 class Account:
+    __instance = None
     
     def __init__(self):
-        self.__balance = 100000
-        self.__sales_volumn = 0  # 매출
-        self.__expenses = 0  # 지출
+        cls = type(self)
+        if cls.__instance is None:
+            self.__balance = 100000
+            self.__sales_volumn = 0  # 매출
+            self.__expenses = 0  # 지출
+            cls.__instance = self
         
-    def register_expenses(self, budget):    # 지출 등록 로직
+    @classmethod
+    def get_instance(cls):
+        if cls.__instance is None:
+            return cls()
+        return cls.__instance
+        
+    def regist_expenses(self, budget):
         if self.__balance > budget:
             self.__balance -= budget
             self.__expenses += budget
             return True
-        return False
+        
+        return False       
     
     def register_sales(self, pay_price):
         self.__balance += pay_price
         self.__sales_volumn += pay_price
+
 
     def get_balance(self):
         return self.__balance
@@ -33,4 +45,3 @@ class Account:
 
     def set_expenses(self, expenses):
         self.__expenses = expenses
-

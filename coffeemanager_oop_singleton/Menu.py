@@ -1,8 +1,5 @@
-from Account import *
-from Coffee import *
-from Order import *
-from Payment import *
 from Sales import *
+
 
 class Menu:
     def __init__(self, sales, drinks):
@@ -57,7 +54,7 @@ class Menu:
         order = Order.create_order(self.drinks[input_code], order_cnt)
         if order is None:
             print('주문 수량이 재고보다 많습니다.')
-            return 
+            return
 
         payment = self.sales.take_order(order)
 

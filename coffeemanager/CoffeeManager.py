@@ -62,10 +62,16 @@ def main():
                     # 잔고가 부족해 매입이 불가능하면 안전재고 매입을 취소한다.
                     print(" [system:log] 잔고가 부족해 안전재고 확보에 실패하였습니다.")
 
+            tot_price = drinks[input_code].price * order_cnt
+            sale_price = 0
+
             print("\n 제품명 : 아메리카노")
             print(" 판매가 :", drinks[input_code].price)
             print(" 판매수량 :", order_cnt)
-            print(" 결제금액 :", drinks[input_code].price * order_cnt)
+            print(f" 결제금액 : {tot_price}")
+            if tot_price >= 10000:
+                sale_price = tot_price * 0.9
+                print(f" 할인가 : [{sale_price}]")
             print(" 남은 재고 :", drinks[input_code].stock)
 
         elif input_menu == 2:
@@ -80,6 +86,7 @@ def main():
 
         else:
             print("알맞은 번호를 입력하세요.")
+
 
 if __name__ == "__main__":
     main()
