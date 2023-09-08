@@ -47,9 +47,9 @@ def main():
             input_code = int(input("\n * 판매한 커피코드 : "))
             order_cnt = int(input(" * 판매량 : "))
 
-            now_month = datetime.now().month
             if input_code == 3:
-                if now_month in (6, 7, 8, 9):
+                now_month = datetime.now().month
+                if now_month not in (6, 7, 8):
                     print("시즌 상품은 비시즌에 구매할 수 없습니다")
                     continue
 
