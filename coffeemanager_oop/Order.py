@@ -1,27 +1,27 @@
 from datetime import datetime
-from Coffee import *
+
+from OrderStatus import OrderStatus
+
 
 class Order:
-    
+
     def __init__(self, coffee, order_cnt):
         self.__coffee = coffee  # 주문한 커피
         self.__order_cnt = order_cnt
         self.__order_time = datetime.now()  # 현재 시간
         self.__order_price = coffee.get_price() * order_cnt
         self.__order_title = f"{coffee.get_name()}[{order_cnt}잔]"
-    
+        self.order_status = None
+
     @staticmethod
     def create_order(coffee, order_cnt):
-        if coffee.get_stock() < order_cnt:
-            return None
-        
         order = Order(coffee, order_cnt)
+        order.order_status = OrderStatus.check_order_status(order)
         return order
-    
-    
+
     def execute(self):
         self.__coffee.offer(self.__order_cnt)
-        
+
     def get_coffee(self):
         return self.__coffee
 

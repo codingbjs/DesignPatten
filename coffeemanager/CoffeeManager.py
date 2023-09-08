@@ -1,4 +1,7 @@
 # OOP 적용이 되지 않은 코드
+from datetime import datetime
+
+
 class Coffee:
     def __init__(self, name, price, cost, stock, safety_stock, sales_cnt):
         self.name = name
@@ -17,7 +20,17 @@ def main():
     americano = Coffee("아메리카노", 3000, 2000, 10, 3, 0)  # 인스턴스화
     moca = Coffee("모카", 4000, 3000, 10, 3, 0)
     latte = Coffee("라떼", 5000, 4000, 10, 3, 0)
-    drinks = [americano, moca, latte]
+
+    # 지금 6,7,8월이 아니라면 프라푸치노를 주문할 경우
+    # 시즌 상품은 비시즌에 구매할 수 없습니다
+    # 를 출력하고 주문취소
+    # from datetime import datetime
+    # now_month = datetime.now().month
+    # 만약 시즌 음료가 11종류이고 11종류마다 시즌 기간이 다 다르다면 어떻게 확장할까?
+
+    frappuchino = Coffee("프라푸치노", 5000, 4000, 10, 3, 0)
+
+    drinks = [americano, moca, latte, frappuchino]
 
     while True:
         print("\n=========Menu=========")
@@ -33,6 +46,12 @@ def main():
 
             input_code = int(input("\n * 판매한 커피코드 : "))
             order_cnt = int(input(" * 판매량 : "))
+
+            now_month = datetime.now().month
+            if input_code == 3:
+                if now_month in (6, 7, 8, 9):
+                    print("시즌 상품은 비시즌에 구매할 수 없습니다")
+                    continue
 
             if input_code < 0 or input_code >= len(drinks):
                 print("정확한 상품번호를 선택해 주세요.")

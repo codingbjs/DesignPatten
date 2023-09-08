@@ -55,9 +55,9 @@ class Menu:
 
     def register_order(self, input_code, order_cnt):
         order = Order.create_order(self.drinks[input_code], order_cnt)
-        if order is None:
-            print('주문 수량이 재고보다 많습니다.')
-            return 
+        if order.order_status.is_fail():
+            print(order.order_status.desc)
+            return
 
         payment = self.sales.take_order(order)
 
