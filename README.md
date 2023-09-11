@@ -12,6 +12,9 @@
 - coffeemanager_oop : OOP 적용
 - coffeemanager_oop_singleton : OOP 적용 - singleton
 - coffeemanager_poly : 다형성 적용
-- 
+ 
 ### 4. Template Patten
-- template : template Patten : 외부 환경의 변화에 따라 변경되어야 하는 코드를 유연하게 외부로 위임하는 패턴
+- template : Template Patten : 외부 환경의 변화에 따라 변경되어야 하는 코드를 유연하게 외부로 위임하는 패턴
+ 
+### 5. Strategy Patten
+- strategy : Strategy Patten : 상속을 강제하지 않고 Template Patten 의 기능을 활용할 수 있는 설계 방식
