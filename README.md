@@ -24,3 +24,6 @@
 
 ### 7. Factory Patten
 - factory : Factory Patten : Factory Class 에게 객체 생성을 위임하는 패턴
+
+### 8. Builder Patten
+- builder : Builder Patten : builder() 를 활용한 클래스 생성 - 가독성
