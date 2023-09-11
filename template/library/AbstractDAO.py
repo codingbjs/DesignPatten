@@ -1,9 +1,10 @@
-import sqlite3
+from abc import *
 
 
-class Dao:
+class AbstractDAO(metaclass=ABCMeta):
+    @abstractmethod
     def get_connection(self):
-        return sqlite3.connect('template_method.db', isolation_level=None)
+        pass
 
     def create(self, sql):
         try:
@@ -21,6 +22,16 @@ class Dao:
             conn.commit()
         except:
             conn.rollback()
+        finally:
+            self.close(cursor, conn)
+
+    def select(self, sql):
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
+            cursor.execute(sql)
+            rows = cursor.fetchall()
+            return rows
         finally:
             self.close(cursor, conn)
 

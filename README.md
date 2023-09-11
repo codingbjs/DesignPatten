@@ -14,4 +14,4 @@
 - coffeemanager_poly : 다형성 적용
 - 
 ### 4. Template Patten
-- template : template Patten
+- template : template Patten : 외부 환경의 변화에 따라 변경되어야 하는 코드를 유연하게 외부로 위임하는 패턴

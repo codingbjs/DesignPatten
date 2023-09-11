@@ -1,7 +1,7 @@
-from Dao import *
+from template.client.DAO import *
 
 if __name__ == '__main__':
-    dao = Dao()
+    dao = DAO()
     # dao.create('CREATE TABLE users (id integer primary key, name text, age integer)')
     users = [
         ("hmd", 73),
