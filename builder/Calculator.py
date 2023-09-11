@@ -14,13 +14,15 @@ class Calculator:
         self.__result -= num
         return self
 
-    def mutil(self, num):
+    def multiply(self, num):
         self.__result *= num
         return self
 
     def divide(self, num):
+        if num == 0:
+            raise ValueError("Division by zero is not allowed.")
         self.__result /= num
         return self
 
     def end(self):
-        return self
+        return self.__result
