@@ -27,4 +27,7 @@
 
 ### 8. Builder Patten
 - builder : Builder Patten : builder() 를 활용한 클래스 생성 - 가독성
-- Calculator.py : 메서드 체인을 활용한 계산기 클래스 
+- Calculator.py : 메서드 체인을 활용한 계산기 클래스
+
+### 9. Proxy Patten
+- proxy : Proxy Patten : 반복 사용되는 기능을 중복을 줄여 모듈화 하는 패턴
