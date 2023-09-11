@@ -21,3 +21,6 @@
 
 ### 6. Callback Patten
 - template_callback : 기능 부분을 함수로 전달 받아 활용
+
+### 7. Factory Patten
+- factory : Factory Patten : Factory Class 에게 객체 생성을 위임하는 패턴
