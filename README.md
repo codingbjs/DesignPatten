@@ -27,4 +27,4 @@
 
 ### 8. Builder Patten
 - builder : Builder Patten : builder() 를 활용한 클래스 생성 - 가독성
-- Calculator.py : Builder Patten 를 활용한 계산기 클래스 
+- Calculator.py : 메서드 체인을 활용한 계산기 클래스 
