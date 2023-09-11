@@ -6,4 +6,4 @@ if __name__ == '__main__':
     print(user)
 
     val = Calculator(10).add(10).add(10).subtract(5).divide(3).end()
-    print("( 10 + 10 - 5 ) / 3 = ", val)
+    print("(10 + 10 - 5) / 3 = ", val)
