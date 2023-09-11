@@ -18,3 +18,6 @@
  
 ### 5. Strategy Patten
 - strategy : Strategy Patten : 상속을 강제하지 않고 Template Patten 의 기능을 활용할 수 있는 설계 방식
+
+### 6. Callback Patten
+- template_callback : 기능 부분을 함수로 전달 받아 활용
